@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN" monitorInterval="60">
+
+    <Properties>
+        <!--  log format for log      -->
+        <Property name="LogPattern">%d{yyy-MM-dd HH:mm:ss} [%15t] %-5level %logger{50}[%L] - %msg%n</Property>
+        <Property name="ConsoleLogPattern">%d{yyy-MM-dd HH:mm:ss} %style{[%15t]}{bright,blue} %clr{%-5level} %style{%logger{50}}{cyan} %style{[%L]}{magenta} - %msg%n</Property>
+        <!--  log level for root      -->
+        <Property name="RootLogLevel">debug</Property>
+        <!--  log file name -->
+        <Property name="LogFileName">mall-shop</Property>
+        <!--  saved path of log file   the sys:log.path must cooperate with LoggingListener in the log4j2 -->
+        <Property name="LogPath">${sys:log.path:-${java.io.tmpdir:-/tmp}}</Property>
+    </Properties>
+
+    <Appenders>
+
+        <Console name="console" target="SYSTEM_OUT">
+            <!-- output format -->
+            <patternLayout pattern="${ConsoleLogPattern}" disableAnsi="false" noConsoleNoAnsi="false"/>
+        </Console>
+
+        <RollingFile name="dailyRollingFile" fileName="${LogPath}/${LogFileName}.log" filePattern="${LogPath}/${LogFileName}-%d{yyyy-MM-dd}-%i.log.gz">
+
+            <PatternLayout pattern="${LogPattern}" />
+
+            <Policies>
+                <!-- rollback in zero clock-->
+                <TimeBasedTriggeringPolicy />
+                <!-- rollback will the log file size more than 100m -->
+                <SizeBasedTriggeringPolicy size="100MB"/>
+                <!--  when the application starting, the last modify create in the log file, current time and corn time
+                    judge together the file whether need rollback  -->
+                <CronTriggeringPolicy schedule="0 0 0 * * ?" evaluateOnStartup="true"/>
+            </Policies>
+
+            <DefaultRolloverStrategy>
+                <!--  auto delete the log file that created before 30d -->
+                <Delete basePath="${LogPath}" maxDepth="2">
+                    <IfLastModified age="30d"/>
+                    <IfFileName glob="*.log.gz" />
+                </Delete>
+            </DefaultRolloverStrategy>
+
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <!-- filter some unnecessary info from mybatis       -->
+        <Logger name="org.mybatis" level="info" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <!-- monitor message  -->
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
+
+        <!-- root configuration -->
+        <Root level="${RootLogLevel}">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="dailyRollingFile"/>
+        </Root>
+    </Loggers>
+
+
+</Configuration>

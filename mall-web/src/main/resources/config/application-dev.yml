@@ -5,3 +5,6 @@ spring:
     username: root
     password: github:lcn29
 
+logging:
+  file:
+    path: F:\StarMeteoritePavilion\log\mall

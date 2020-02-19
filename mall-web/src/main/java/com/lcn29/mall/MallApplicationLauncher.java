@@ -1,5 +1,6 @@
 package com.lcn29.mall;
 
+import com.lcn29.kit.web.listener.LoggerListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,6 +16,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MallApplicationLauncher {
 
     public static void main(String[] args) {
-        SpringApplication.run(MallApplicationLauncher.class, args);
+
+        SpringApplication springApplication = new SpringApplication(MallApplicationLauncher.class);
+        springApplication.addListeners(new LoggerListener());
+        springApplication.run(args);
     }
 }
