@@ -3,25 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>lcn-mall</artifactId>
         <groupId>com.lcn29</groupId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>mall-core</artifactId>
+    <artifactId>mall-test</artifactId>
 
     <dependencies>
-
         <dependency>
-            <groupId>com.lcn29</groupId>
-            <artifactId>mall-config</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.lcn29</groupId>
-            <artifactId>mall-dao</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -30,6 +29,10 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.lcn29</groupId>
+            <artifactId>mall-web</artifactId>
+        </dependency>
     </dependencies>
 
 

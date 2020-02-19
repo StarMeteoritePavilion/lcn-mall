@@ -10,5 +10,5 @@ package com.lcn29.mall.service;
  */
 public interface DemoService {
 
-    String sayHello();
+    String sayHello(String word);
 }

@@ -18,6 +18,7 @@
         <module>mall-core</module>
         <module>mall-dao</module>
         <module>mall-config</module>
+        <module>mall-test</module>
     </modules>
 
     <properties>
@@ -54,6 +55,11 @@
             <dependency>
                 <groupId>com.lcn29</groupId>
                 <artifactId>mall-config</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lcn29</groupId>
+                <artifactId>mall-test</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
