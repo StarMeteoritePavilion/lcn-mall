@@ -24,6 +24,11 @@
             <groupId>com.lcn29</groupId>
             <artifactId>mall-core</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.lcn29</groupId>
+            <artifactId>transaction-starter</artifactId>
+        </dependency>
     </dependencies>
 
 
