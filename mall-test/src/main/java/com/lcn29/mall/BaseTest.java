@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * <pre>
- *
+ * Base Test for all the controller test class
  * </pre>
  *
  * @author LCN

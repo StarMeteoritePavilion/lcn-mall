@@ -13,6 +13,13 @@
     <artifactId>mall-web</artifactId>
 
     <dependencies>
+
+        <!--  use undertow instead of Tomcat    -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.lcn29</groupId>
             <artifactId>mall-core</artifactId>
