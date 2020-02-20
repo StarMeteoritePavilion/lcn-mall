@@ -1,5 +1,7 @@
 package com.lcn29.mall.service;
 
+import com.lcn29.mall.dao.DemoDO;
+
 /**
  * <pre>
  *
@@ -11,4 +13,8 @@ package com.lcn29.mall.service;
 public interface DemoService {
 
     String sayHello(String word);
+
+    DemoDO selectDemo(int id);
+
+    DemoDO insertDemo(DemoDO demo);
 }

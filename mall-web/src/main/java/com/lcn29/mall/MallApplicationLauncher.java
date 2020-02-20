@@ -1,6 +1,7 @@
 package com.lcn29.mall;
 
 import com.lcn29.kit.web.listener.LoggerListener;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
+@MapperScan("com.lcn29.mall.mapper")
 public class MallApplicationLauncher {
 
     public static void main(String[] args) {
