@@ -30,6 +30,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.lcn29</groupId>
+            <artifactId>security-starter</artifactId>
+        </dependency>
+
     </dependencies>
 
 

@@ -36,7 +36,6 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public DemoDO insertDemo(DemoDO demo) {
         int insert = demoMapper.insert(demo);
-        int num = 9 / 0;
         log.info("结果--->{}", insert);
         return demo;
     }

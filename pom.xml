@@ -25,6 +25,7 @@
         <revision>0.0.1-SNAPSHOT</revision>
         <common-web.version>0.0.1-SNAPSHOT</common-web.version>
         <transaction-starter.version>0.0.1-SNAPSHOT</transaction-starter.version>
+        <security-starter.version>0.0.1-SNAPSHOT</security-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -42,6 +43,12 @@
                 <groupId>com.lcn29</groupId>
                 <artifactId>transaction-starter</artifactId>
                 <version>${transaction-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lcn29</groupId>
+                <artifactId>security-starter</artifactId>
+                <version>${security-starter.version}</version>
             </dependency>
 
             <!--   project sub-module  -->
